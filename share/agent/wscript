@@ -1,0 +1,18 @@
+#!/usr/bin/env python
+# Copyright (C) 2026 Apollo AI Lab, Inc.
+# Licensed under the GNU General Public License, version 2 (GPL-2.0)
+import os
+
+def configure(conf):
+    pass
+
+def build(bld):
+    # Only install if the bundled agent has been built (by tools/package-agent.sh).
+    # In development, the agent is launched via DAWGS_AGENT_PATH instead.
+    files = bld.path.ant_glob ('**', excl='wscript')
+    if files:
+        datadir = os.path.join(bld.env['DATADIR'], 'agent')
+        bld.install_files (datadir, files, relative_trick=True)
+
+def options(opt):
+    pass

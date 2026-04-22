@@ -1,0 +1,239 @@
+/*
+ * Copyright (C) 2026 Apollo AI Lab, Inc.
+ * Licensed under the GNU General Public License, version 2 (GPL-2.0)
+ *
+ * LabDAWg Chat UI — Midnight theme
+ */
+
+:root {
+  --bg-darkest: #06060f;
+  --bg-dark: #0d1020;
+  --bg-medium: #141830;
+  --bg-lighter: #1c2240;
+  --bg-widget: #262e4a;
+  --text-primary: #d4d8e8;
+  --text-secondary: #9aa0b8;
+  --text-muted: #555c78;
+  --accent-blue: #e88a2e;
+  --accent-blue-light: #f0a050;
+  --accent-green: #4cc85c;
+  --accent-orange: #e87a2e;
+  --accent-red: #e83030;
+  --border: #262e4a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-size: 13px;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  height: 100vh;
+  overflow: hidden;
+}
+
+#chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Header */
+#chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: var(--bg-darkest);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.header-title {
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+}
+
+#connection-status {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.status-connected {
+  background: rgba(76, 200, 92, 0.2);
+  color: var(--accent-green);
+}
+
+.status-disconnected {
+  background: rgba(232, 48, 48, 0.2);
+  color: var(--accent-red);
+}
+
+.status-connecting {
+  background: rgba(232, 122, 46, 0.2);
+  color: var(--accent-orange);
+}
+
+/* Messages area */
+#chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+#chat-messages::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+#chat-messages::-webkit-scrollbar-thumb {
+  background: var(--bg-widget);
+  border-radius: 3px;
+}
+
+.message {
+  max-width: 90%;
+  padding: 8px 12px;
+  border-radius: 8px;
+  line-height: 1.5;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.message-user {
+  align-self: flex-end;
+  background: var(--accent-blue);
+  color: #fff;
+  border-bottom-right-radius: 2px;
+}
+
+.message-assistant {
+  align-self: flex-start;
+  background: var(--bg-lighter);
+  color: var(--text-primary);
+  border-bottom-left-radius: 2px;
+}
+
+.message-system {
+  align-self: center;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-style: italic;
+  padding: 4px 8px;
+}
+
+/* Code blocks in messages */
+.message pre {
+  background: var(--bg-darkest);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 8px;
+  margin: 6px 0;
+  overflow-x: auto;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 12px;
+}
+
+.message code {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 12px;
+  background: var(--bg-darkest);
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.message pre code {
+  background: none;
+  padding: 0;
+}
+
+/* Streaming indicator */
+.typing-indicator {
+  display: inline-block;
+  width: 6px;
+  height: 14px;
+  background: var(--accent-blue-light);
+  animation: blink 0.8s infinite;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Input area */
+#chat-input-area {
+  display: flex;
+  align-items: flex-end;
+  padding: 8px 12px;
+  background: var(--bg-darkest);
+  border-top: 1px solid var(--border);
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+#chat-input {
+  flex: 1;
+  background: var(--bg-medium);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-primary);
+  padding: 8px 12px;
+  font-family: inherit;
+  font-size: 13px;
+  resize: none;
+  outline: none;
+  max-height: 120px;
+  line-height: 1.4;
+}
+
+#chat-input:focus {
+  border-color: var(--accent-blue);
+}
+
+#chat-input::placeholder {
+  color: var(--text-muted);
+}
+
+#send-btn {
+  background: var(--accent-blue);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+#send-btn:hover {
+  background: var(--accent-blue-light);
+}
+
+#send-btn:disabled {
+  background: var(--bg-widget);
+  cursor: not-allowed;
+}

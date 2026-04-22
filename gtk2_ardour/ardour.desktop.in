@@ -1,0 +1,13 @@
+# Modified by Apollo AI Lab, Inc. on 2026-03-17: Rebranded desktop entry to LabDAWg
+[Desktop Entry]
+Name=LabDAWg
+Comment=LabDAWg Digital Audio Workstation
+Exec=@ARDOUR_EXEC@
+Icon=@ARDOUR_ICON@
+Terminal=false
+MimeType=application/x-ardour;
+Type=Application
+Categories=AudioVideo;Audio;AudioEditing;X-Recorders;X-Multitrack;X-Jack;
+StartupWMClass=LabDAWg
+X-NSM-Capable=true
+X-NSM-Exec=@ARDOUR_EXEC@

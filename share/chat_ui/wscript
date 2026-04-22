@@ -1,0 +1,15 @@
+#!/usr/bin/env python
+# Copyright (C) 2026 Apollo AI Lab, Inc.
+# Licensed under the GNU General Public License, version 2 (GPL-2.0)
+import os
+
+def configure(conf):
+    pass
+
+def build(bld):
+    datadir = os.path.join(bld.env['DATADIR'], 'chat_ui')
+    files = bld.path.ant_glob ('**', excl='wscript')
+    bld.install_files (datadir, files, relative_trick=True)
+
+def options(opt):
+    pass

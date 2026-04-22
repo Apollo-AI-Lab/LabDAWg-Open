@@ -1,0 +1,27 @@
+<!--
+  Copyright (C) 2026 Apollo AI Lab, Inc.
+  Licensed under the GNU General Public License, version 2 (GPL-2.0)
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LabDAWg Chat</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="chat-container">
+    <div id="chat-header">
+      <span class="header-title">AI Assistant</span>
+      <span id="connection-status" class="status-disconnected">disconnected</span>
+    </div>
+    <div id="chat-messages"></div>
+    <div id="chat-input-area">
+      <textarea id="chat-input" placeholder="Ask the AI to control your DAW..." rows="1"></textarea>
+      <button id="send-btn" title="Send">&#9654;</button>
+    </div>
+  </div>
+  <script src="js/chat.js"></script>
+</body>
+</html>
