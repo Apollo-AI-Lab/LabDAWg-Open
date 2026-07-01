@@ -44,4 +44,3 @@ For general Ardour build documentation, see the [Ardour build guide](https://ard
 ## Upstream
 
 Ardour source: https://github.com/Ardour/ardour
-LabDAWg fork: https://github.com/Apollo-AI-Lab/dawgs
