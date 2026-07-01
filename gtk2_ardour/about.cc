@@ -25,7 +25,8 @@
 
 /*
  * Modified by Apollo AI Lab, Inc. on 2026-03-17
- * Summary of changes: Rebranded application name and credits from Ardour to LabDAWg
+ * Summary of changes: Updated application name, credits, and GPL compliance
+ * notice to reflect LabDAWg identity.
  */
 
 #include <algorithm>
@@ -243,7 +244,7 @@ static const char* translators[] = {
 \n\tChristophe Combelles <ccomb@free.fr>\
 \n\tMartin Blanchard\
 \n\tRomain Arnaud <roming22@gmail.com>\
-\n\tOlivier Humbert <trebmuh@tuxfamily.org>\
+\n\tOlivier Humbert <trebmuh@librazik.org>\
 \n\tFrédéric Rech <fred_rech@laposte.net>\
 \n\tJulien Taverna <jujudusud@gmail.com>\
 \n\tNicolas Faure <sub26nico@laposte.net>\n"),

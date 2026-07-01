@@ -33,12 +33,15 @@
 
 /*
  * Modified by Apollo AI Lab, Inc. on 2026-03-16
- * Summary of changes: Added ChatWebView member and declarations for LabDAWg chat panel
+ * Summary of changes: Wired ChatWebView widget into the main editor window;
+ * added show/hide toggle and layout integration.
+ *
+ * Modified by Apollo AI Lab, Inc. on 2026-06-06
+ * Summary of changes: Removed ChatWebView widget references following the
+ * removal of the in-process chat panel.
  */
 
 #pragma once
-
-#include <sys/time.h>
 
 #include <cmath>
 #include <list>
@@ -84,8 +87,6 @@
 #include "tempo_curve.h"
 
 #include "ptformat/ptformat.h"
-
-class ChatWebView;
 
 namespace Gtkmm2ext {
 	class Bindings;
@@ -503,6 +504,8 @@ public:
 
 	void find_and_display_track ();
 
+	void toggle_main ();
+
 protected:
 	void map_transport_state ();
 	void map_position_change (samplepos_t);
@@ -580,10 +583,6 @@ private:
 	void update_join_object_range_location (double);
 
 	Gtk::VBox                 _editor_list_vbox;
-#ifdef PLATFORM_WINDOWS
-	ArdourWidgets::VPane      _right_pane;
-	ChatWebView*              _chat_webview;
-#endif
 	Gtk::Notebook             _the_notebook;
 	ArdourWidgets::MetaButton _notebook_tab1;
 	ArdourWidgets::MetaButton _notebook_tab2;
@@ -1017,8 +1016,8 @@ private:
 		DOWN
 	};
 
-	bool scroll_press (Direction);
-	void scroll_release ();
+	bool scroll_press (GdkEventButton* ev, Direction);
+	bool scroll_release (GdkEventButton* ev);
 	sigc::connection _scroll_connection;
 	int _scroll_callbacks;
 
@@ -2151,6 +2150,7 @@ private:
 	bool _pending_initial_locate;
 
 	Gtk::HBox _summary_hbox;
+	Gtk::VBox _summary_vbox;
 	EditorSummary* _summary;
 
 	void region_view_added (RegionView*);
